@@ -1,0 +1,18 @@
+<h2>New book</h2>
+
+<form action="/books" id="new_book" method="post">
+    <ul>
+        <li>
+            <label for="book_name">Name</>label>
+            <input type="text" id="book_name" name="book[name]">
+        </li>
+        <li>
+            <label for="book_author">Author</>label>
+            <input type="text" id="book_author" name="book[author]">
+        </li>
+        <li class="button">
+            <button type="submit" name="save" data-disable-with="Create book">save</button>
+        </li>
+    </ul>
+</form>
+

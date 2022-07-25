@@ -1,0 +1,25 @@
+<% if params[:process] == :delete.to_s %>	
+	<h1>"Book deleted!"</h1>
+<% end %>
+
+<h1>Books</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Author</th>
+	</tr>
+	<tr>
+		<div data-controller="books">
+			<% @books.each do |book| %>
+				<td><%= book.name %></td>
+				<td><%= book.author %></td>
+				<%= link_to "edit_book_#{book.id}", edit_book_path(book) %>
+				<%= button_to "delete_book_#{book.id}", book_path(book), form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>		
+			<% end %>
+		</div>
+	</tr>
+</table>
+
+<%= link_to "Add book", new_book_path %>
+
